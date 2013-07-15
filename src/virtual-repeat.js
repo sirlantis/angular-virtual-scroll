@@ -130,12 +130,12 @@
           maxHeight = style && style.getPropertyValue('max-height'),
           height = style && style.getPropertyValue('height');
 
-      if( height && height !== '0px' ){
+      if( height && height !== '0px' && height !== 'auto' ){
         $log.info('Row height is "%s" from css height', height);
-      }else if( maxHeight && maxHeight !== '0px' ) {
+      }else if( maxHeight && maxHeight !== '0px' && maxHeight !== 'none' ) {
         height = maxHeight;
         $log.info('Row height is "%s" from css max-height', height);
-      }else if( element[0].clientHeight ){
+      }else if( element.clientHeight ){
         height = element.clientHeight+'px';
         $log.info('Row height is "%s" from client height', height);
       }else{
